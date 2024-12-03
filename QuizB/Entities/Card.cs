@@ -10,6 +10,7 @@ public class Card
     public float Balance { get; set; } = 0;
     public int WrongPasswordTries { get; set; } = 0;
     public int UserId { get; set; }
+    public string CVV2 { get; set; }
     #endregion
 
     #region NavigationProperties
