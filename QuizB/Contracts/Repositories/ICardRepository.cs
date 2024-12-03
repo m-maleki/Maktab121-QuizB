@@ -11,4 +11,5 @@ public interface ICardRepository
     bool CardIsActive(string cardNumber);
     Card GetCardBy(string cardNumber);
     void ClearWrongPasswordTry(string cardNumber);
+    void SaveChanges();
 }

@@ -15,11 +15,13 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+        modelBuilder.ApplyConfiguration(new UserConfiguration());
         modelBuilder.ApplyConfiguration(new CardConfiguration());
+        modelBuilder.ApplyConfiguration(new TransactionConfiguration());
         base.OnModelCreating(modelBuilder);
     }
 
     public DbSet<Transaction> Transactions { get; set; }
     public DbSet<Card> Cards { get; set; }
+    public DbSet<User> Users { get; set; }
 }

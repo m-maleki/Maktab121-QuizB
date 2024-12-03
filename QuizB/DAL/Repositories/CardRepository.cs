@@ -55,6 +55,11 @@ public class CardRepository : ICardRepository
         _dbContext.SaveChanges();
     }
 
+    public void SaveChanges()
+    {
+        _dbContext.SaveChanges();
+    }
+
     public void Withdraw(string cardNumber, float amount)
     {
         var card = _dbContext.Cards
@@ -66,7 +71,6 @@ public class CardRepository : ICardRepository
         }
 
         card.Balance -= amount;
-        _dbContext.SaveChanges();
     }
 
     public void Deposit(string cardNumber, float amount)
@@ -74,13 +78,14 @@ public class CardRepository : ICardRepository
         var card = _dbContext.Cards
             .FirstOrDefault(x => x.CardNumber == cardNumber);
 
+        throw new Exception("");
+
         if (card is null)
         {
             throw new Exception($"cannot found card with number {cardNumber}");
         }
 
         card.Balance += amount;
-        _dbContext.SaveChanges();
     }
 
     public void SetWrongPasswordTry(string cardNumber)
@@ -109,6 +114,8 @@ public class CardRepository : ICardRepository
 
         return card.WrongPasswordTries;
     }
+
+
 
     #endregion
 }

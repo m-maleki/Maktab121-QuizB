@@ -4,13 +4,10 @@ using ConsoleTables;
 using QuizB.Services;
 using QuizB.Framework;
 using QuizB.Contracts.Services;
+using QuizB.Entities;
 
 ICardService cardService = new CardService();
 ITransactionService transactionService = new TransactionService();
-AppDbContext appDbContext = new AppDbContext();
-
-appDbContext.Database.EnsureCreated();
-
 Result passwordValidationResult;
 string cardNumber;
 

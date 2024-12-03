@@ -53,17 +53,16 @@ public class TransactionService : ITransactionService
         if ((_transactionRepository.DailyWithdrawal(sourceCardNumber) + amount)  > 250)
             return "Your daily transfer limit is full";
 
-        _cardRepository.Withdraw(sourceCardNumber, amount);
-
         try
         {
+            _cardRepository.Withdraw(sourceCardNumber, amount);
             _cardRepository.Deposit(destinationCardNumber, amount);
+            _cardRepository.SaveChanges();
             isSuccess = true;
 
         }
         catch (Exception e)
         {
-            _cardRepository.Deposit(sourceCardNumber, amount);
             isSuccess = false;
             return "Transfer money failed";
         }

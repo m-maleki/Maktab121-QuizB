@@ -12,8 +12,8 @@ public class CardConfiguration : IEntityTypeConfiguration<Card>
 
         builder.HasData(new List<Card>()
         {
-            new Card() {Id = 1 , CardNumber = "6037997568331020" , HolderName = "MeliCard" ,Password = "1234" ,Balance = 500},
-            new Card() {Id = 2 ,CardNumber = "6037997568331030" , HolderName = "MeliCard" ,Password = "1234" ,Balance = 100},
+            new Card() {Id = 1 ,UserId = 1 ,CardNumber = "6037997568331020" , HolderName = "MeliCard" ,Password = "1234" ,Balance = 500},
+            new Card() {Id = 2 ,UserId = 2 ,CardNumber = "6037997568331030" , HolderName = "MeliCard" ,Password = "1234" ,Balance = 100},
         });
     }
 }

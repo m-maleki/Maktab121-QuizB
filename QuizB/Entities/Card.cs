@@ -9,10 +9,12 @@ public class Card
     public bool IsActive { get; set; } = true;
     public float Balance { get; set; } = 0;
     public int WrongPasswordTries { get; set; } = 0;
+    public int UserId { get; set; }
     #endregion
 
     #region NavigationProperties
     public List<Transaction> TransactionsAsSource { get; set; }
     public List<Transaction> TransactionsAsDestination { get; set; }
+    public User User { get; set; }
     #endregion
 }
